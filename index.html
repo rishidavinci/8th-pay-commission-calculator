@@ -130,16 +130,8 @@
 </head>
 <body>
     <!-- Header Section -->
-    <header class="header" role="banner">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <i class="fas fa-calculator" aria-hidden="true"></i>
-                    <h1>8th Pay Commission Calculator</h1>
-                </div>
-                <p class="subtitle">Calculate your expected salary under 8th Pay Commission 2026</p>
-            </div>
-        </div>
+    <header style="font-size:1.5rem; font-weight:600; padding:1.2rem 0 0.5rem 0; text-align:center; background:none; position:static;">
+        8th Pay Commission Calculator
     </header>
 
     <!-- Main Calculator Section -->
@@ -165,6 +157,11 @@
                 </div>
             </section>
 
+            <!-- Add a note for hard refresh if changes are not visible -->
+            <div style="text-align:center; color:#805ad5; font-size:0.98em; margin-bottom:0.5em;">
+                <strong>Note:</strong> If you don't see the latest changes, please hard refresh (Cmd+Shift+R or Ctrl+F5).
+            </div>
+
             <div class="calculator-grid">
                 <!-- Input Section -->
                 <section class="input-section" aria-labelledby="salary-inputs">
@@ -177,7 +174,12 @@
                         </div>
 
                         <form role="form" aria-label="Salary calculation form">
-                            <!-- Basic Information -->
+                            <!-- Move Basic Pay field above Pay Level, set autofocus and inputmode for mobile -->
+                            <div class="form-group">
+                                <label for="currentBasic">Current Basic Pay (₹)</label>
+                                <input type="number" id="currentBasic" name="currentBasic" placeholder="Enter your current basic pay" min="0" aria-describedby="basic-help" oninput="calculateSalaryLive();" autofocus inputmode="numeric">
+                                <small id="basic-help" class="help-text">Enter your current basic salary amount</small>
+                            </div>
                             <div class="form-group">
                                 <label for="payLevel">Pay Level <span class="info-icon" tabindex="0" aria-label="Select your pay matrix level (1-18) as per your appointment letter or payslip.">i</span></label>
                                 <select id="payLevel" name="payLevel" aria-describedby="paylevel-help" onchange="calculateSalaryLive();">
@@ -205,12 +207,6 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="currentBasic">Current Basic Pay (₹)</label>
-                                <input type="number" id="currentBasic" name="currentBasic" placeholder="Enter your current basic pay" min="0" aria-describedby="basic-help" oninput="calculateSalaryLive();">
-                                <small id="basic-help" class="help-text">Enter your current basic salary amount</small>
-                            </div>
-
-                            <div class="form-group">
                                 <label for="gradePay">Grade Pay (₹) <span class="optional">(Optional)</span></label>
                                 <input type="number" id="gradePay" name="gradePay" placeholder="Enter grade pay if applicable" min="0" aria-describedby="grade-help" oninput="calculateSalaryLive();">
                                 <small id="grade-help" class="help-text">Leave empty if you don't have grade pay</small>
@@ -224,15 +220,20 @@
 
                             <!-- Allowances -->
                             <div class="form-group">
-                                <label for="currentHRAPercentage">Current HRA Percentage (%) <span class="info-icon" tabindex="0" aria-label="HRA rates: 27% (X/Metro), 18% (Y/Tier-2), 9% (Z/Other) as of Jan 2024. HRA will increase to 30%, 20%, 10% if DA crosses 50%. Minimum HRA is Rs. 1,800. HRA is a percentage of basic pay, based on city classification. See details below.">i</span></label>
+                                <label for="currentHRAPercentage">Current HRA Percentage (%) <span class="info-icon" tabindex="0" aria-label="HRA rates: 30% (X/Metro), 20% (Y/Tier-2), 10% (Z/Other) as of Jan 2024. Minimum HRA is Rs. 1,800. HRA is a percentage of basic pay, based on city classification. See details below.">i</span></label>
                                 <select id="currentHRAPercentage" name="currentHRAPercentage" aria-describedby="hra-help" onchange="calculateSalaryLive();">
-                                    <option value="27">27% (Metro/X Cities)</option>
-                                    <option value="18">18% (Tier-2/Y Cities)</option>
-                                    <option value="9">9% (Other/Z Cities)</option>
+                                    <option value="30" selected>30% (Metro/X Cities)</option>
+                                    <option value="20">20% (Tier-2/Y Cities)</option>
+                                    <option value="10">10% (Other/Z Cities)</option>
                                 </select>
-                                <small id="hra-help" class="help-text">HRA as a percentage of basic pay. 27% for Metro, 18% for Tier-2, 9% for other cities. <a href="https://7thpaycommissionnews.in/7th-cpc-hra/" target="_blank" rel="noopener">More info</a></small>
+                                <small id="hra-help" class="help-text">HRA as a percentage of basic pay. 30% for Metro, 20% for Tier-2, 10% for other cities. <a href="https://7thpaycommissionnews.in/7th-cpc-hra/" target="_blank" rel="noopener">More info</a></small>
                                 <div class="hra-info" style="font-size:0.97em; color:#4a5568; margin-top:0.5em;">
-                                <small id="hra-help" class="help-text">HRA as a percentage of basic pay. 27% for Metro, 18% for Tier-2, 9% for other cities.</small>
+                                    <strong>HRA Rules (2024):</strong><br>
+                                    - <strong>30%</strong> for X/Metro cities, <strong>20%</strong> for Y/Tier-2, <strong>10%</strong> for Z/Other (as of Jan 2024)<br>
+                                    - <strong>Minimum HRA:</strong> Rs. 1,800<br>
+                                    - HRA is a percentage of basic pay, based on city classification<br>
+                                    <a href="https://7thpaycommissionnews.in/7th-cpc-hra/" target="_blank" rel="noopener">Official HRA Source</a>
+                                </div>
                             </div>
 
                             <!-- Add City Type selector above TA -->
