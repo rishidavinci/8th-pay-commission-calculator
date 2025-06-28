@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Test - 8th Pay Commission Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .breakpoint {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            text-align: center;
+        }
+        .mobile { border-color: #28a745; background: #d4edda; }
+        .tablet { border-color: #ffc107; background: #fff3cd; }
+        .desktop { border-color: #007bff; background: #d1ecf1; }
+        .large { border-color: #6f42c1; background: #e2d9f3; }
+        
+        h1 { color: #333; text-align: center; margin-bottom: 30px; }
+        .calculator-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            margin: 20px 0;
+            transition: transform 0.3s ease;
+        }
+        .calculator-link:hover {
+            transform: translateY(-2px);
+        }
+        .status {
+            background: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>📱 Responsive Test - 8th Pay Commission Calculator</h1>
+        
+        <div class="breakpoint mobile">
+            <h3>📱 Mobile (320px - 767px)</h3>
+            <div class="status">✅ Optimized for touch</div>
+            <p>Single column layout, large touch targets, mobile-friendly forms</p>
+        </div>
+        
+        <div class="breakpoint tablet">
+            <h3>📱 Tablet (768px - 1023px)</h3>
+            <div class="status">✅ Responsive grid</div>
+            <p>Two-column layout, optimized spacing, touch-friendly</p>
+        </div>
+        
+        <div class="breakpoint desktop">
+            <h3>💻 Desktop (1024px - 1199px)</h3>
+            <div class="status">✅ Full features</div>
+            <p>Multi-column layout, hover effects, detailed information</p>
+        </div>
+        
+        <div class="breakpoint large">
+            <h3>🖥️ Large Screen (1200px+)</h3>
+            <div class="status">✅ Enhanced layout</div>
+            <p>Maximum width container, optimal spacing, all features</p>
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="index.html" class="calculator-link">🚀 Open Calculator</a>
+        </div>
+        
+        <div style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+            <h3>🧪 How to Test:</h3>
+            <ol>
+                <li>Open the calculator in your browser</li>
+                <li>Press <strong>F12</strong> to open DevTools</li>
+                <li>Click the <strong>Device Toolbar</strong> icon (📱)</li>
+                <li>Test different screen sizes from the dropdown</li>
+                <li>Try the calculator on actual mobile/tablet devices</li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html> 
